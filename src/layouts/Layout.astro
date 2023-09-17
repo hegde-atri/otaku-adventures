@@ -1,0 +1,50 @@
+---
+import '@fontsource/inter';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/inter/700.css';
+import '@fontsource/inter/800.css';
+import '@fontsource/inter/900.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+let default_description = 'Description';
+
+const { title, description = default_description } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Favicon -->
+    <link rel="icon" type="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <!-- SEO -->
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content={description} />
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content="/logo.png" />
+    <!-- Title -->
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      html {
+        font-family: Inter;
+        background-color: #26272b;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </body>
+</html>
