@@ -11,7 +11,7 @@ export interface Props {
   description?: string;
 }
 
-let default_description = 'Description';
+let default_description = 'Independant Anime Merchandise Store based from Bengaluru, India.';
 
 const { title, description = default_description } = Astro.props;
 ---
@@ -21,18 +21,24 @@ const { title, description = default_description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- Favicon -->
-    <link rel="icon" type="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <!-- SEO -->
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="" />
+    <meta
+      name="keywords"
+      content="Otaku Treasures, Anime merch comicon, anime merch bengaluru, comicon anime store, bengaluru comicon store"
+    />
     <meta name="description" content={description} />
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:image" content="/logo.png" />
+    <meta property="og:image" content="/images/logo.png" />
     <!-- Title -->
     <title>{title}</title>
   </head>
@@ -41,7 +47,9 @@ const { title, description = default_description } = Astro.props;
     <style is:global>
       html {
         font-family: Inter;
-        background-color: #26272b;
+        /*         background-color: #f2f9f9; */
+        @apply h-screen bg-gradient-to-b from-[#96c5ca] to-[#385d66] bg-no-repeat;
+
         overflow-x: hidden;
         scroll-behavior: smooth;
       }
